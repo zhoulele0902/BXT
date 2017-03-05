@@ -1,0 +1,20 @@
+{
+  "baseConfig": {
+    "debug": true,
+    "isMobilePlatform": false,
+    "appStoreFlag": false,
+    "clearTable": true,
+    "basePath": "http://wechattest.lbxdrugs.com/lbxdrugsApp/r/api",
+    "loginPath":"http://wechattest.lbxdrugs.com/lbxdrugsApp/oauth/token?client_id=app_user&client_secret=secret&grant_type=password&",
+    "pluginBusinessPath":"http://wechattest.lbxdrugs.com",
+    "url": "",
+    "pkgIdentifier": "",
+    "version":{
+      "currentVersion": "0.0.1",
+      "currentversionName": "此版本为开发环境0.0.1",
+      "currentSubVersion": "1",
+      "currentSubVersionName": "资源增量包1"
+    },
+    "appEnvironment": "DEV"
+  }
+}
