@@ -38,15 +38,6 @@ gulp.task('copy-img',function () {
     .pipe(gulp.dest('www/build/img'));
 });
 
-//copy all files
-gulp.task('copy-dev',function () {
-  return gulp.src([
-    'src/**/*',
-    '!src/index.html',
-    '!src/scripts/*'
-  ]).pipe(gulp.dest('www'));
-});
-
 //copy ionic lib
 gulp.task('copy-dev-libs',function () {
   return gulp.src(libDevFilePath)

@@ -1,14 +1,35 @@
-angular.module('App', ['ionic'])
+//登录模块
+var loginModule = angular.module('loginModule',[]);
+var lbxModule = angular.module('lbxModule',[]);
+var utilsModule = angular.module('utilsModule',[]);
 
-  .config(function ($stateProvider, $urlRouterProvider) {
+var app = angular.module('App', [
+  'ionic',
+  'ngCordova',
+  'baseConfig',
+  'serviceModule',
+  'utilsModule',
+  'loginModule',
+  'lbxModule',
+  'highcharts-ng'
+])
+
+  .config(function ($stateProvider, $urlRouterProvider,baseConfig) {
     $stateProvider
-      .state('/tour',{
+      .state('tour',{
         url:'/tour',
-        templateUrl:'build/pages/tour/tour.html'
+        templateUrl:'build/pages/tour/tour.html',
+        controller: 'tourController',
       })
-      .state('/login',{
+      .state('login',{
         url:'/login',
-        templateUrl:'build/pages/login/login.html'
+        templateUrl:'build/pages/login/login.html',
+        controller:'loginController'
+      })
+      .state('highchart',{
+        url:'/highchart',
+        templateUrl:'build/pages/highchart/highchart.html',
+        controller:'highchartController'
       })
 
     $urlRouterProvider.otherwise('/tour');

@@ -16,6 +16,8 @@ var jsFilePath = [
   'app/scripts/*.js',
   'app/scripts/**/*.js',
   'app/scripts/**/**/*.js',
+  'app/pages/**/*.js',
+  'app/pages/**/**/*.js'
 ];
 
 //concat and Uglify js

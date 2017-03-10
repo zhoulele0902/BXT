@@ -14,8 +14,8 @@ var $ = require('gulp-load-plugins')({
 });
 var _ = require('lodash');
 
-var browserSync = require("browser-sync").create();
-//var reload = browserSync.reload;
+var browserSync = require('browser-sync');
+
 var imagePath = [
   "app/img/*",
   "app/img/*/*"];
@@ -41,14 +41,22 @@ function isOnlyChange(event) {
   return event.type === 'changed';
 }
 
+// start browserSync
+gulp.task('browserSync', function() {
+  browserSync({
+    server: {
+      baseDir: 'www'
+    },
+  })
+})
+
 // Clean Task
 gulp.task('clean', function () {
   $.del(['www/build/*', 'app/scripts/baseConfig.js', 'www/index.html']);
 });
 
 // Watch Files For Changes
-gulp.task('watch', function () {
-  //gulp.watch(['src/**/*'], ["copy-dev"]);
+gulp.task('watch',['browserSync'],function () {
   gulp.watch(['app/pages/**/*.scss','app/pages/**/**/*.scss','app/theme/*.scss'], ['reload-sass']);
   gulp.watch(jsFilePath, ['reload-scripts']);
   gulp.watch(htmlFilePath, ['reload-pagesHtml']);
@@ -57,7 +65,4 @@ gulp.task('watch', function () {
 
 gulp.task('serve',['watch'], function (callback) {
   $.runSequence('build-dev', callback);
-  browserSync.init({
-    server: "www"
-  });
 });

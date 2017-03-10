@@ -11,7 +11,7 @@ var $ = require('gulp-load-plugins')({
 });
 
 gulp.task('build-dev',function (callback) {
-  $.runSequence('copy-dev','copy-config',[
+  $.runSequence('copy-config',[
     'copy-dev-libs',
     'copy-img',
     'html',
